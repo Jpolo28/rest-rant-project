@@ -1,7 +1,11 @@
-const router = require('express').router
+const places = require('express').Router()
 
-router.get('/', (req. res) => {
+places.get('/', (req, res) => {
     res.send('GET /places')
 })
 
-module.exports = router
+places.post('/',(req,res) =>{
+    res.send('')
+})
+
+module.exports = places
