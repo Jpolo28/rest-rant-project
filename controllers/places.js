@@ -1,10 +1,10 @@
 const places = require('express').Router()
 
-places.get('/', (req, res) => {
+places.get('/', (res, req) => {
     res.send('GET /places')
 })
 
-places.post('/',(req,res) =>{
+places.post('/',(res,req) =>{
     res.send('')
 })
 
