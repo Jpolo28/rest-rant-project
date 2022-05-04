@@ -1,3 +1,5 @@
+const { Router } = require('express')
+
 const places = require('express').Router()
 //GET /places
 places.get('/', (req, res) => {
@@ -16,5 +18,7 @@ places.get('/', (req, res) => {
     }]
     res.render('places/index', { places })
 })
-
+router.get('/new', (req, res) => {
+    res.render('places/new')
+})
 module.exports = places
