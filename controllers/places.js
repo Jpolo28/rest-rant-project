@@ -1,20 +1,29 @@
+const { Router } = require('express')
+
 const places = require('express').Router()
+const places = require('../models/places.js')
+
 //GET /places
 places.get('/', (req, res) => {
-    let places = [{
-        name:'Azteca',
-        city:'Rutherford',
-        state:'NJ',
-        cuisines:'Mexican',
-        pic:'http://placekitten.com/250/250',
-    },{
-        name:'Yamada',
-        city:'Rutheford',
-        state:'NJ',
-        cuisines:'Japanese, Sushi',
-        pic:'http://placekitten.com/250/250',
-    }]
     res.render('places/index', { places })
 })
-
+router.get('/new', (req, res) => {
+    res.render('places/new')
+})
+router.post('/', (req, res) => {
+    if (!req.body.pic) {
+      // Default image if one is not provided
+      req.body.pic = 'http://placekitten.com/400/400'
+    }
+    if (!req.body.city) {
+      req.body.city = 'Anytown'
+    }
+    if (!req.body.state) {
+      req.body.state = 'USA'
+    }
+    places.push(req.body)
+    res.redirect('/places')
+  })
+  
+  
 module.exports = places
