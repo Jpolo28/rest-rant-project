@@ -6,13 +6,13 @@ places.get('/', (req, res) => {
         city:'Rutherford',
         state:'NJ',
         cuisines:'Mexican',
-        pic:'http://placekitten.com/250/250',
+        pic:'/images/Azteca.jpg',
     },{
         name:'Yamada',
         city:'Rutheford',
         state:'NJ',
         cuisines:'Japanese, Sushi',
-        pic:'http://placekitten.com/250/250',
+        pic:'/images/Yamada.jpg',
     }]
     res.render('places/index', { places })
 })
