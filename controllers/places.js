@@ -1,10 +1,10 @@
 const { Router } = require('express')
 
-const places = require('express').Router()
+const router = require('express').Router()
 const places = require('../models/places.js')
 
 //GET /places
-places.get('/', (req, res) => {
+router.get('/', (req, res) => {
   res.render('places/index', { places })
 })
 router.get('/new', (req, res) => {
@@ -23,6 +23,20 @@ router.get('/:id', (req, res) => {
     res.redirect('/places')
   }
 })
+router.get('/:id/edit', (req, res) => {
+  let id = Number(req.params.id)
+  if (isNaN(id)) {
+      res.render('error404')
+  }
+  else if (!places[id]) {
+    res.render(error404)
+  }
+  else {
+    res.render('places/edit', { place: places[id]})
+  }
+  
+})
+
 router.post('/', (req, res) => {
   if (!req.body.pic) {
     // Default image if one is not provided
