@@ -1,7 +1,13 @@
 const React = require('react')
 const places = require('../../controllers/places')
 const Def = require('../default')
+const mongoose = require('mongooses')
 
+mongoose.connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology:true
+}
+    )
 function index (data) {
     let placesFormatted = data.places.map((place) => {
     return (
