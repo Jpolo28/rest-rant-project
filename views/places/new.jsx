@@ -1,7 +1,7 @@
 const React = require('react')
 const Def = require('../default')
 
-function new_form () {
+function new_form() {
     return (
         <Def>
             <main>
@@ -17,11 +17,11 @@ function new_form () {
                     </div>
                     <div className='form-group'>
                         <label htmlFor="city">City</label>
-                        <input className='form-control' id="city" name="city"/>
+                        <input className='form-control' id="city" name="city" />
                     </div>
                     <div className='form-group'>
                         <label htmlFor="state">State</label>
-                        <input className='form-control' id="state" name="state"/>
+                        <input className='form-control' id="state" name="state" />
                     </div>
                     <div className='form-group'>
                         <label htmlFor="cuisines">Cuisines</label>
@@ -30,6 +30,11 @@ function new_form () {
                     <div>
                         <input className='btn btn-primary' type="submit" value="Add Place" />
                     </div>
+                    <div className="form-group">
+                        <label for="founded">Founded Year</label>
+                        <input className="form-control" id="founded" name="founded" />
+                    </div>
+
                 </form>
             </main>
         </Def>
